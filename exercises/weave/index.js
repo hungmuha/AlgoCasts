@@ -6,7 +6,7 @@
 // The third queue should contain the *alterating* content
 // of the two queues.  The function should handle
 // queues of different lengths without inserting
-// 'undefined' into the new one.
+//'undefined' into the new one.
 // *Do not* access the array inside of any queue, only
 // use the 'add', 'remove', and 'peek' functions.
 // --- Example
@@ -24,6 +24,18 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+	let result = new Queue();
+	while(sourceOne.peek() || sourceTwo.peek()) {
+		if(sourceOne.peek()) {
+			result.add(sourceOne.remove());
+		} 
+
+		if(sourceTwo.peek()) {
+			result.add(sourceTwo.remove());
+		}
+	}
+	return result;
+}
 
 module.exports = weave;
