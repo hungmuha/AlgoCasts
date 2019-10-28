@@ -117,7 +117,23 @@ class LinkedList {
 		let previous = this.getAt(index-1) || this.getLast();
 		const node = new Node(data,previous.next);
 		previous.next = node;
-	}
+    }
+    forEach(providedFunction) {
+        var node = this.head;
+        var index = 0;
+        while(node) {
+            providedFunction(node,index);
+            node = node.next;
+            index++;
+        };
+    }
+    *[Symbol.iterator]() {
+        let node = this.head;
+        while(node) {
+            yield node;
+            node = node.next;
+        }
+    }
 }
 
 module.exports = { Node, LinkedList };
