@@ -1,12 +1,21 @@
 // --- Directions
-// Given a string, return true if the string is a palindrome
-// or false if it is not.  Palindromes are strings that
-// form the same word if it is reversed. *Do* include spaces
-// and punctuation in determining if the string is a palindrome.
-// --- Examples:
-//   palindrome("abba") === true
-//   palindrome("abcdefg") === false
+// Given an integer, return an integer that is the reverse
+// ordering of numbers.
+// --- Examples
+//   reverseInt(15) === 51
+//   reverseInt(981) === 189
+//   reverseInt(500) === 5
+//   reverseInt(-15) === -51
+//   reverseInt(-90) === -9
 
-function palindrome(str) {}
+function reverseInt(n) {
+    // var reversedString = n.toString().split('').reduce((reversed,character)=> character + reversed,'');
+    var reversedString = n
+        .toString()
+        .split('')
+        .reverse()
+        .join('');
+    return parseInt(reversedString) * Math.sign(n);
+}
 
-module.exports = palindrome;
+module.exports = reverseInt;
