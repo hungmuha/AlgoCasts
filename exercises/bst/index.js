@@ -53,7 +53,7 @@ class Node {
         } else if(data > this.data && this.right) {
             return this.right.contains(data) 
         } 
-
+        
         return null;
     }
 }
